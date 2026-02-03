@@ -85,42 +85,20 @@ export default async function RecipePage({ params }: RecipePageProps) {
       <RecipeHeader />
 
       <main className="relative z-10 pt-24 pb-16">
-        <article className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
+        <article className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
           {/* Recipe Hero */}
           <header className="mb-8 sm:mb-12">
-            <span className="inline-block px-3 py-1 text-xs font-medium bg-secondary text-secondary-foreground rounded-full mb-4">
+            <span className="inline-block px-3 py-1 text-sm font-medium bg-muted shadow-lg shadow-black/30 border text-secondary-foreground rounded-full mb-4">
               {recipe.category}
             </span>
 
             <h1 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-semibold tracking-tight text-foreground text-balance">
               {recipe.title}
             </h1>
-
-            <p className="mt-4 text-muted-foreground text-lg leading-relaxed max-w-2xl">
-              {recipe.description}
-            </p>
-
-            {/* Recipe Meta */}
-            <div className="flex flex-wrap gap-4 sm:gap-6 mt-6 text-sm text-muted-foreground">
-              <div className="flex items-center gap-2">
-                <Clock className="h-4 w-4" />
-                <span>{recipe.prepTime}</span>
-              </div>
-
-              <div className="flex items-center gap-2">
-                <Users className="h-4 w-4" />
-                <span>{recipe.servings} portioner</span>
-              </div>
-
-              <div className="flex items-center gap-2">
-                <ChefHat className="h-4 w-4" />
-                <span>{recipe.ingredients.length} ingredienser</span>
-              </div>
-            </div>
           </header>
 
           {/* Recipe Image */}
-          <div className="relative aspect-[16/9] rounded-xl overflow-hidden mb-8 sm:mb-12 shadow-lg">
+          <div className="relative aspect-[16/9] rounded-xl overflow-hidden mb-8 sm:mb-12 shadow-xl shadow-black/30">
             <Image
               src={recipe.image || "/placeholder.svg"}
               alt={recipe.title}
@@ -135,8 +113,8 @@ export default async function RecipePage({ params }: RecipePageProps) {
           <div className="grid md:grid-cols-3 gap-8 lg:gap-12">
             {/* Ingredients */}
             <aside className="md:col-span-1">
-              <div className="sticky top-24 bg-card rounded-xl p-6 shadow-sm border border-border">
-                <h2 className="font-serif text-xl font-semibold text-foreground mb-4">
+              <div className="sticky top-24 bg-muted rounded-xl p-6 shadow-xl shadow-black/30 border border-border">
+                <h2 className="font-serif text-4xl font-semibold text-foreground mb-4">
                   Ingredienser
                 </h2>
                 <ul className="space-y-3">
@@ -155,7 +133,7 @@ export default async function RecipePage({ params }: RecipePageProps) {
 
             {/* Instructions */}
             <section className="md:col-span-2">
-              <h2 className="font-serif text-2xl font-semibold text-foreground mb-6">
+              <h2 className="font-serif text-4xl font-bold text-foreground mb-6">
                 Instruktioner
               </h2>
 

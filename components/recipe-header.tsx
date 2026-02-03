@@ -25,7 +25,7 @@ export function RecipeHeader() {
 
             <Link href="/" className="flex items-center">
   <Image
-    src="/tivemarks_W.jpg"
+    src="/tivemarks_W.png"
     alt="Tivemark's Recept"
     width={220}
     height={48}

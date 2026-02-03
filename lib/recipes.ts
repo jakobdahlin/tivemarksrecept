@@ -4,7 +4,6 @@ export type RecipeCategory =
   | 'Soppor & Grytor'
   | 'Frukost'
   | 'Bakning'
-  | 'Desserter'
   | 'Drycker'
   | 'Övrigt'
 
@@ -37,11 +36,6 @@ export const categories: {
     id: 'Bakning',
     label: 'Bakning',
     description: 'Bröd, bakverk och godsaker',
-  },
-  {
-    id: 'Desserter',
-    label: 'Desserter',
-    description: 'Söta avslut på varje måltid',
   },
   {
     id: 'Drycker',
@@ -89,27 +83,10 @@ export const sampleRecipes: Recipe[] = [
       servings: 6,
       description: 'Fyllig och mättande',
       ingredients: [
-        { name: 'Margarin', amount: 100, unit: 'g' },
-        { name: 'Mjöl', amount: 2, unit: 'dl' },
-        { name: 'Vatten', amount: 1/2, unit: 'dl' },
-        { name: 'Ägg', amount: 2, unit: 'st' },
-        { name: 'Grädde', amount: 2, unit: 'dl' },
-        { name: 'Riven ost', amount: 3, unit: 'dl' },
-        { name: 'Riven skinka', amount: 2, unit: 'dl' },
-        { name: 'Ruccula', amount: 1, unit: 'paket' },
-      ],
-      instructions: [
-        'Sätt ugnen på 175°C.',
-        'Blanda mjöl och margarin till en smulig deg.',
-        'Tillsätt vattnet och arbeta snabbt ihop till en deg.',
-        'Tryck ut degen i en pajform och nagga botten med en gaffel.',
-        'Förbaka pajskalet i mitten av ugnen i ca 10 minuter.',
-        'Vispa ihop ägg och grädde i en skål.',
-        'Blanda ner den rivna osten och skinkan och rör till en jämn smet.',
-        'Häll äggstanningen i det förbakade pajskalet.',
-        'Grädda pajen i 175°C i ca 30–35 minuter tills fyllningen har stannat och fått fin färg.',
-        'Låt pajen vila några minuter före servering.',
-        'Garnera med ruccula',
+        { name: 'Ljummet vatten', amount: 2, unit: 'dl' },
+        { name: 'Olja', amount: 1, unit: 'msk' },
+        { name: 'Jäst', amount: 25, unit: 'g' },
+        { name: 'Mjöl', amount: 5, unit: 'dl' },
       ],
     },
 
@@ -283,12 +260,71 @@ export const sampleRecipes: Recipe[] = [
       'Sätt ugnen på 225°C.',
       'Smält smöret och låt det svalna något.',
       'Blanda mjöl, socker, salt och bakpulver i en bunke.',
-      'Rör ner det smälta smöret tills du får en smulig deg.',
+      'Rör ner det smälta smöret tills du får en mjuk deg.',
       'Skär rabarbern i mindre bitar och blanda med socker och potatismjöl.',
-      'Lägg rabarbern i en smord pajform.',
-      'Fördela smuldegen jämnt över rabarbern.',
-      'Grädda mitt i ugnen i cirka 20–25 minuter tills pajen är gyllene.',
+      'Smörj pajformen med lite smör.',
+      'kavla försiktigt ut degen över pajformen och kanterna.',
+      'Lägg på rabarbern och strö socker på pajen.',
+      'Grädda mitt i ugnen i cirka 20 minuter tills pajen är gyllene.',
       'Låt svalna något före servering.',
+    ]
+  },
+
+  {
+    id: 'smulpaj',
+    title: 'Smulpaj',
+    image: '/receptbilder/smulpaj.png',
+    category: 'Bakning',
+    prepTime: '45 minuter',
+    servings: 6,
+    description: 'Fyllig och mättande',
+    ingredients: [
+      { name: 'Margarin', amount: 100, unit: 'g' },
+      { name: 'Mjöl', amount: 2, unit: 'dl' },
+      { name: 'Vaniljsocker', amount: 1, unit: 'tsk' },
+      { name: 'Bakpulver', amount: 1, unit: 'tsk' },
+    ],
+    instructions: [
+      'Sätt ugnen på 225°C.',
+      'Blanda mjöl och margarin till en smulig deg.',
+      'Tillsätt vattnet och arbeta snabbt ihop till en deg.',
+      'Tryck ut degen i en pajform och nagga botten med en gaffel.',
+      'Förbaka pajskalet i mitten av ugnen i ca 10 minuter.',
+      'Vispa ihop ägg och grädde i en skål.',
+      'Blanda ner den rivna osten och skinkan och rör till en jämn smet.',
+      'Häll äggstanningen i det förbakade pajskalet.',
+      'Grädda pajen i 225°C i ca 30 minuter tills fyllningen har stannat och fått fin färg.',
+      'Låt pajen vila några minuter före servering.',
+      'Garnera med ruccula',
+    ],
+  },
+
+    {
+    id: 'tartbotten',
+    title: 'Tårtbotten',
+    image: '/receptbilder/tartbotten.png',
+    category: 'Bakning',
+    prepTime: '45 minuter',
+    servings: 10,
+    description: 'Fyllig och mättande',
+    ingredients: [
+      { name: 'ägg', amount: 2, unit: 'st' },
+      { name: 'Socker', amount: 2, unit: 'dl' },
+      { name: 'Vetemjöl', amount: 2, unit: 'dl' },
+      { name: 'Bakpulver', amount: 1, unit: 'tsk' },
+      { name: 'Vaniljsocker', amount: 1, unit: 'tsk' },
+      { name: 'Hett vatten', amount: 4, unit: 'msk' },
+    ],
+    instructions: [
+      'Sätt ugnen på 175°C.',
+      'Klä en rund form (ca 22–24 cm) med bakplåtspapper i botten och smörj kanterna lätt.',
+      'Vispa ägg och socker ljust och riktigt pösigt i en bunke.',
+      'Blanda vetemjöl, bakpulver och vaniljsocker i en separat skål.',
+      'Sikta ner de torra ingredienserna i äggsmeten och vänd försiktigt ihop till en jämn smet.',
+      'Tillsätt det heta vattnet och rör snabbt men försiktigt tills smeten är slät.',
+      'Häll smeten i formen och jämna till ytan.',
+      'Grädda i nedre delen av ugnen i ca 30–35 minuter tills kakan är gyllene och en provsticka kommer ut torr.',
+      'Låt tårtbottnen svalna några minuter i formen, vänd sedan upp den på galler och låt svalna helt innan den delas eller fylls.'
     ]
   },
 

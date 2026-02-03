@@ -162,3 +162,19 @@
 .animate-scroll-up-slow:hover {
   animation-play-state: paused;
 }
+
+/* Default body text */
+body {
+  font-family: var(--font-kumbh), system-ui, sans-serif;
+}
+
+/* All headings use Ephesis */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-ephesis), cursive;
+  font-weight: 400;
+}

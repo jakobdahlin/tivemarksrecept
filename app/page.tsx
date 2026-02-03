@@ -27,8 +27,8 @@ export default function HomePage() {
 
       {/* Right: Text */}
       <div className="text-center md:text-left">
-        <h1 className="font-serif text-4xl sm:text-5xl lg:text-6xl font-semibold tracking-tight text-foreground text-balance">
-          Familjerecept,<br />
+        <h1 className="font-serif text-4xl sm:text-5xl lg:text-6xl font-semibold tracking-tight text-accent text-balance">
+          Tivemarks recept,<br />
           <span className="text-muted-foreground">
             förda vidare med kärlek
           </span>
@@ -36,7 +36,7 @@ export default function HomePage() {
 
         <p className="mt-4 sm:mt-6 text-base sm:text-lg text-muted-foreground max-w-2xl text-pretty mx-auto md:mx-0">
           En samling älskade recept från vårt familjekök.
-          Varje rätt bär på en historia om tradition, omtanke och glädjen i att laga mat tillsammans.
+          Varje rätt bär på en historia om tradition, omtanke och glädjen i att laga mat och äta tillsammans.
         </p>
       </div>
 
@@ -66,12 +66,12 @@ export default function HomePage() {
 <section id="about" className="py-16 sm:py-24 border-t border-border">
   <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
     <div className="max-w-2xl">
-      <h2 className="font-serif text-2xl sm:text-3xl font-semibold text-foreground">
+      <h2 className="text-4xl sm:text-3xl font-bold text-foreground">
         Om Tivemark&apos;s Recept
       </h2>
       <p className="mt-4 text-muted-foreground leading-relaxed">
         Den här samlingen har sina rötter i Maria Tivemarks kök, där varje måltid lagades
-        med omsorg och varje recept var en skatt värd att bevara. Rätterna har följt
+        med omsorg och varje recept är en skatt värd att bevara. Rätterna har följt
         familjen Tivemark genom generationer och samlat oss runt matbordet.
       </p>
       <p className="mt-4 text-muted-foreground leading-relaxed">
@@ -88,7 +88,7 @@ export default function HomePage() {
           <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
           <Link href="/" className="flex items-center">
   <Image
-    src="/tivemarks_W.jpg"
+    src="/tivemarks_W.png"
     alt="Tivemark's Recept"
     width={220}
     height={48}

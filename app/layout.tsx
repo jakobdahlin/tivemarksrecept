@@ -3,9 +3,19 @@ import type { Metadata, Viewport } from 'next'
 import { Playfair_Display, Inter } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/next'
 import './globals.css'
+import { Ephesis, Kumbh_Sans } from "next/font/google"
 
-const _playfair = Playfair_Display({ subsets: ["latin"], variable: '--font-playfair' });
-const _inter = Inter({ subsets: ["latin"], variable: '--font-inter' });
+const ephesis = Ephesis({
+  subsets: ["latin"],
+  weight: "400",
+  variable: "--font-ephesis",
+})
+
+const kumbhSans = Kumbh_Sans({
+  subsets: ["latin"],
+  weight: ["300", "400", "500", "600", "700"],
+  variable: "--font-kumbh",
+})
 
 export const metadata: Metadata = {
   title: "Tivemark's Recept",
@@ -42,7 +52,8 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en">
+    <html lang="sv"
+    className={`${ephesis.variable} ${kumbhSans.variable}`}>
       <body className={`font-sans antialiased`}>
         {children}
         <Analytics />

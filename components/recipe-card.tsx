@@ -20,10 +20,7 @@ export function RecipeCard({ recipe }: RecipeCardProps) {
           />
           <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/0 to-transparent" />
           <div className="absolute bottom-0 left-0 right-0 p-4">
-            <span className="inline-block px-2 py-1 text-xs font-medium bg-background/90 text-foreground rounded mb-2">
-              {recipe.category}
-            </span>
-            <h3 className="font-serif text-lg sm:text-xl font-semibold text-white leading-tight">
+            <h3 className="font-serif text-3xl sm:text-3xl font-bold text-white">
               {recipe.title}
             </h3>
           </div>

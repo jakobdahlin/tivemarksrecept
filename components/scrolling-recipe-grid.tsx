@@ -34,7 +34,7 @@ export function ScrollingRecipeGrid({ recipes }: ScrollingRecipeGridProps) {
 
   return (
     <div className="relative h-[600px] sm:h-[700px] lg:h-[800px] overflow-hidden">
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 xl:grid-cols-7 gap-4 px-4 sm:px-6 lg:px-8">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-7 gap-4 px-4 sm:px-6 lg:px-8">
         {/* Col 1 (mobile+) */}
         <div className={directionClass(0)} style={{ animationDuration: durationFor(0) }}>
           <div className="flex flex-col gap-4">
@@ -94,8 +94,8 @@ export function ScrollingRecipeGrid({ recipes }: ScrollingRecipeGridProps) {
 
         {/* Col 6 (lg+) */}
         <div
-          className={`hidden lg:block ${directionClass(3)}`}
-          style={{ animationDuration: durationFor(3) }}
+          className={`hidden lg:block ${directionClass(5)}`}
+          style={{ animationDuration: durationFor(5) }}
         >
           <div className="flex flex-col gap-4">
             {columns[3].map((recipe, index) => (
@@ -106,8 +106,8 @@ export function ScrollingRecipeGrid({ recipes }: ScrollingRecipeGridProps) {
 
         {/* Col 7 (xl+) */}
         <div
-          className={`hidden xl:block ${directionClass(4)}`}
-          style={{ animationDuration: durationFor(4) }}
+          className={`hidden xl:block ${directionClass(6)}`}
+          style={{ animationDuration: durationFor(6) }}
         >
           <div className="flex flex-col gap-4">
             {columns[4].map((recipe, index) => (

@@ -49,7 +49,7 @@ export default function RecipesPage() {
   />
 
   {/* Darken/tint overlay for readability */}
-  <div className="absolute inset-0 bg-secondary/70" />
+  <div className="absolute inset-0 bg-background/70" />
 
   {/* White → transparent gradient (top is brightest) */}
   <div className="absolute inset-0 bg-gradient-to-t from-white via-white/40 to-transparent" />
@@ -83,7 +83,7 @@ export default function RecipesPage() {
           <div className="flex flex-col lg:flex-row gap-8">
             {/* Sidebar - Categories */}
             <aside className="lg:w-64 shrink-0">
-              <h2 className="font-serif text-lg font-semibold text-foreground mb-4">Kategorier</h2>
+              <h2 className="font-serif text-3xl font-semibold text-foreground mb-4">Kategorier</h2>
               <nav className="flex flex-row lg:flex-col gap-2 overflow-x-auto pb-2 lg:pb-0">
                 <button
                   type="button"
@@ -107,8 +107,8 @@ export default function RecipesPage() {
                     onClick={() => setSelectedCategory(category.id)}
                     className={`flex items-center justify-between px-4 py-2.5 rounded-lg text-sm font-medium transition-colors whitespace-nowrap ${
                       selectedCategory === category.id
-                        ? "bg-foreground text-background"
-                        : "bg-muted text-foreground hover:bg-muted/80"
+                        ? "bg-foreground text-background border "
+                        : "bg-muted text-foreground hover:bg-white border"
                     }`}
                   >
                     <span>{category.label}</span>
@@ -125,9 +125,9 @@ export default function RecipesPage() {
               {/* Results Count */}
               <div className="flex items-center justify-between mb-6">
                 <p className="text-sm text-muted-foreground">
-                  {filteredRecipes.length} {filteredRecipes.length === 1 ? "recipe" : "recipes"} found
-                  {selectedCategory !== "all" && ` in ${selectedCategory}`}
-                  {searchQuery && ` for "${searchQuery}"`}
+                  {filteredRecipes.length} {filteredRecipes.length === 1 ? "recept" : "recept"} hittade
+                  {selectedCategory !== "all" && ` under ${selectedCategory}`}
+                  {searchQuery && ` för "${searchQuery}"`}
                 </p>
               </div>
 
@@ -137,7 +137,7 @@ export default function RecipesPage() {
                     <Link
                       key={recipe.id}
                       href={`/recipe/${recipe.id}`}
-                      className="group bg-card rounded-xl border border-border overflow-hidden hover:shadow-lg transition-shadow"
+                      className="group bg-card rounded-2xl border border-border overflow-hidden shadow-md hover:shadow-xl shadow-black/30 transition-shadow"
                     >
                       <div className="relative aspect-[4/3] overflow-hidden">
                         <Image
@@ -146,29 +146,11 @@ export default function RecipesPage() {
                           fill
                           className="object-cover group-hover:scale-105 transition-transform duration-300"
                         />
-                        <div className="absolute top-3 left-3">
-                          <span className="px-2.5 py-1 bg-background/90 backdrop-blur-sm text-xs font-medium text-foreground rounded-full">
-                            {recipe.category}
-                          </span>
-                        </div>
                       </div>
                       <div className="p-4">
-                        <h3 className="font-serif text-lg font-semibold text-foreground group-hover:text-accent transition-colors">
+                        <h3 className="font-serif text-3xl font-bold text-foreground group-hover:text-accent transition-colors">
                           {recipe.title}
                         </h3>
-                        <p className="mt-1 text-sm text-muted-foreground line-clamp-2">
-                          {recipe.description}
-                        </p>
-                        <div className="mt-3 flex items-center gap-4 text-xs text-muted-foreground">
-                          <span className="flex items-center gap-1">
-                            <Clock className="h-3.5 w-3.5" />
-                            {recipe.prepTime}
-                          </span>
-                          <span className="flex items-center gap-1">
-                            <Users className="h-3.5 w-3.5" />
-                            {recipe.servings} portioner
-                          </span>
-                        </div>
                         <div className="mt-3 flex items-center text-sm font-medium text-foreground group-hover:text-accent transition-colors">
                           Visa Recept
                           <ChevronRight className="ml-1 h-4 w-4 group-hover:translate-x-1 transition-transform" />

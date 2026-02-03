@@ -9,17 +9,17 @@ export function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-white backdrop-blur-sm border-b border-border shadow-md">
+    <header className="fixed top-0 left-0 right-0 z-50 bg-white backdrop-blur-sm">
       <nav className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
-        <div className="flex h-16 items-center justify-between">
+        <div className="flex h-14 items-center justify-between">
         <Link href="/" className="flex items-center">
   <Image
-    src="/tivemarks_W.jpg"
+    src="/tivemarks_W.png"
     alt="Tivemark's Recept"
     width={220}
     height={48}
     priority
-    className="h-auto w-[160px] sm:w-[200px]"
+    className="h-auto w-[160px] sm:w-[180px]"
   />
 </Link>
 
@@ -52,8 +52,8 @@ export function Header() {
 
         {/* Mobile Navigation */}
         {isMenuOpen && (
-          <div className="md:hidden py-4 border-t border-border">
-            <div className="flex flex-col gap-4">
+          <div className="md:hidden py-4 border-t border-border ">
+            <div className="flex flex-col gap-4 mt-20 items-center h-screen bg-white/20">
               <Link
                 href="/"
                 className="text-base font-medium text-foreground hover:text-muted-foreground transition-colors"
@@ -67,13 +67,6 @@ export function Header() {
                 onClick={() => setIsMenuOpen(false)}
               >
                 Recipes
-              </Link>
-              <Link
-                href="/#about"
-                className="text-base font-medium text-foreground hover:text-muted-foreground transition-colors"
-                onClick={() => setIsMenuOpen(false)}
-              >
-                About
               </Link>
             </div>
           </div>
