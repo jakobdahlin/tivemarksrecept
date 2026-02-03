@@ -38,28 +38,45 @@ export default function RecipesPage() {
       
       <main className="pt-16">
         {/* Hero Section */}
-        <section className="border-b border-border bg-secondary/30">
-          <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 py-12 sm:py-16">
-            <h1 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-semibold text-foreground text-balance">
-              Receptarkivet
-            </h1>
-            <p className="mt-3 text-muted-foreground text-lg max-w-2xl">
-  Bläddra bland alla Marias älskade recept. Använd sökfunktionen eller filtrera på kategori för att hitta precis det du söker.
-</p>
+        <section className="relative overflow-hidden">
+  {/* Background image */}
+  <Image
+    src="/kitchen.jpg"
+    alt=""
+    fill
+    priority
+    className="object-cover"
+  />
 
-            {/* Search Bar */}
-            <div className="mt-8 relative max-w-xl">
-              <Search className="absolute left-4 top-1/2 -translate-y-1/2 h-5 w-5 text-muted-foreground" />
-              <input
-                type="text"
-                placeholder="Sök recept, ingredienser..."
-                value={searchQuery}
-                onChange={(e) => setSearchQuery(e.target.value)}
-                className="w-full pl-12 pr-4 py-3 bg-background border border-border rounded-lg text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring focus:border-transparent transition-shadow"
-              />
-            </div>
-          </div>
-        </section>
+  {/* Darken/tint overlay for readability */}
+  <div className="absolute inset-0 bg-secondary/70" />
+
+  {/* White → transparent gradient (top is brightest) */}
+  <div className="absolute inset-0 bg-gradient-to-t from-white via-white/40 to-transparent" />
+
+  {/* Content (must be inside z-10 wrapper) */}
+  <div className="relative z-10 mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 py-12 sm:py-16">
+    <h1 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-semibold text-foreground text-balance">
+      Receptarkivet
+    </h1>
+
+    <p className="mt-3 text-muted-foreground text-lg max-w-2xl">
+      Bläddra bland alla Marias älskade recept. Använd sökfunktionen eller filtrera på kategori för att hitta precis det du söker.
+    </p>
+
+    {/* Search Bar */}
+    <div className="mt-8 relative max-w-xl shadow-xl">
+      <Search className="absolute left-4 top-1/2 -translate-y-1/2 h-5 w-5 text-muted-foreground" />
+      <input
+        type="text"
+        placeholder="Sök recept, ingredienser..."
+        value={searchQuery}
+        onChange={(e) => setSearchQuery(e.target.value)}
+        className="w-full pl-12 pr-4 py-3 bg-background/90 backdrop-blur-sm border border-border rounded-lg text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring focus:border-transparent transition-shadow"
+      />
+    </div>
+  </div>
+</section>
 
         {/* Category Filters + Recipes Grid */}
         <section className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 py-8 sm:py-12">

@@ -11,15 +11,36 @@ export default function HomePage() {
       
 {/* Hero Section */}
 <section className="pt-24 pb-8 sm:pt-32 sm:pb-12">
-  <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 text-center">
-    <h1 className="font-serif text-4xl sm:text-5xl lg:text-6xl font-semibold tracking-tight text-foreground text-balance">
-      Familjerecept,<br />
-      <span className="text-muted-foreground">förda vidare med kärlek</span>
-    </h1>
-    <p className="mt-4 sm:mt-6 text-base sm:text-lg text-muted-foreground max-w-2xl mx-auto text-pretty">
-      En samling älskade recept från vårt familjekök.
-      Varje rätt bär på en historia om tradition, omtanke och glädjen i att laga mat tillsammans.
-    </p>
+  <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+    <div className="grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
+      
+      {/* Left: Image */}
+      <div className="relative w-full h-[260px] sm:h-[320px] md:h-[420px]">
+        <Image
+          src="/maria.png" // byt till din bild
+          alt="Tivemark's Recept"
+          fill
+          className="object-contain"
+          priority
+        />
+      </div>
+
+      {/* Right: Text */}
+      <div className="text-center md:text-left">
+        <h1 className="font-serif text-4xl sm:text-5xl lg:text-6xl font-semibold tracking-tight text-foreground text-balance">
+          Familjerecept,<br />
+          <span className="text-muted-foreground">
+            förda vidare med kärlek
+          </span>
+        </h1>
+
+        <p className="mt-4 sm:mt-6 text-base sm:text-lg text-muted-foreground max-w-2xl text-pretty mx-auto md:mx-0">
+          En samling älskade recept från vårt familjekök.
+          Varje rätt bär på en historia om tradition, omtanke och glädjen i att laga mat tillsammans.
+        </p>
+      </div>
+
+    </div>
   </div>
 </section>
 
