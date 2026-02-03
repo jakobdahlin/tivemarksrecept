@@ -9,28 +9,24 @@ const _inter = Inter({ subsets: ["latin"], variable: '--font-inter' });
 
 export const metadata: Metadata = {
   title: "Tivemark's Recept",
-  description: "En samling älskade familjerecept, förda vidare med kärlek.",
-  openGraph: {
-    title: "Tivemark's Recept",
-    description: "Familjerecept förda vidare med kärlek.",
-    url: "https://tivemarksrecept.vercel.app",
-    siteName: "Tivemark's Recept",
-    images: [
+  description: "A collection of cherished family recipes passed down through generations",
+  generator: 'v0.app',
+  icons: {
+    icon: [
       {
-        url: "/tivemarks_W.jpg",
-        width: 1200,
-        height: 630,
-        alt: "Tivemark's Recept",
+        url: '/icon-light-32x32.png',
+        media: '(prefers-color-scheme: light)',
+      },
+      {
+        url: '/icon-dark-32x32.png',
+        media: '(prefers-color-scheme: dark)',
+      },
+      {
+        url: '/icon.svg',
+        type: 'image/svg+xml',
       },
     ],
-    locale: "sv_SE",
-    type: "website",
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "Tivemark's Recept",
-    description: "Familjerecept förda vidare med kärlek.",
-    images: ["/tivemarks_W.jpg"],
+    apple: '/apple-icon.png',
   },
 }
 
