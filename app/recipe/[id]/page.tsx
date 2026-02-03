@@ -3,6 +3,47 @@ import { notFound } from "next/navigation"
 import { RecipeHeader } from "@/components/recipe-header"
 import { getRecipeById, type Ingredient } from "@/lib/recipes"
 import { Clock, Users, ChefHat } from "lucide-react"
+import type { Metadata } from 'next'
+
+export async function generateMetadata(
+  { params }: RecipePageProps
+): Promise<Metadata> {
+  const { id } = await params
+  const recipe = getRecipeById(id)
+
+  if (!recipe) {
+    return {
+      title: 'Recept – Tivemark’s Recept',
+    }
+  }
+
+  const imageUrl = `https://tivemarksrecept.vercel.app${recipe.image}`
+
+  return {
+    title: recipe.title,
+    description: recipe.description,
+    openGraph: {
+      title: recipe.title,
+      description: recipe.description,
+      url: `https://tivemarksrecept.vercel.app/recipe/${recipe.id}`,
+      type: 'article',
+      images: [
+        {
+          url: imageUrl,
+          width: 1200,
+          height: 630,
+          alt: recipe.title,
+        },
+      ],
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: recipe.title,
+      description: recipe.description,
+      images: [imageUrl],
+    },
+  }
+}
 
 interface RecipePageProps {
   params: Promise<{ id: string }>
@@ -24,7 +65,7 @@ export default async function RecipePage({ params }: RecipePageProps) {
   if (!recipe) {
     notFound()
   }
-  
+
   return (
     <div className="min-h-screen bg-background">
       {/* Faded Background Image */}
@@ -119,7 +160,7 @@ export default async function RecipePage({ params }: RecipePageProps) {
               </h2>
 
               <ol className="space-y-6">
-                {recipe.instructions.map((instruction, index) => (
+                {recipe.instructions?.map((instruction, index) => (
                   <li key={`step-${index}`} className="flex gap-4">
                     <span className="flex-shrink-0 w-8 h-8 rounded-full bg-primary text-primary-foreground flex items-center justify-center text-sm font-semibold">
                       {index + 1}

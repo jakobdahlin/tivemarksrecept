@@ -6,6 +6,7 @@ export type RecipeCategory =
   | 'Bakning'
   | 'Desserter'
   | 'Drycker'
+  | 'Övrigt'
 
 export const categories: {
   id: RecipeCategory
@@ -47,6 +48,11 @@ export const categories: {
     label: 'Drycker',
     description: 'Drycker för hela familjen',
   },
+  {
+    id: 'Övrigt',
+    label: 'Övrigt',
+    description: 'Övrigt',
+  },
 ]
 
 export interface Recipe {
@@ -58,7 +64,7 @@ export interface Recipe {
   servings: number
   description: string
   ingredients: Ingredient[]
-  instructions: string[]
+  instructions?: string[]
 }
 
 export interface Ingredient {
@@ -231,38 +237,59 @@ export const sampleRecipes: Recipe[] = [
     ],
   },
 
-    // DESSERTER -----------------------------------------------------------------------------------
-
-
   {
-    id: 'chicken-soup',
-    title: 'Homemade Chicken Soup',
-    image: '/receptbilder/chicken-soup.jpg',
-    category: 'Soppor & Grytor',
-    prepTime: '5 veckor',
-    servings: 12,
-    description: 'Decadent chocolate layer cake with chocolate buttercream.',
+    id: 'snickers',
+    title: 'Snickers',
+    image: '/receptbilder/snickers.png',
+    category: 'Bakning',
+    prepTime: '30 min',
+    servings: 20,
+    description: 'Klassiska hallongrottor med mördeg och hallonsylt.',
     ingredients: [
-      { name: 'Svagdricka', amount: 6, unit: 'dl' },
-      { name: 'Socker', amount: 3, unit: 'kg' },
-      { name: 'jäst', amount: 2, unit: 'paket' },
-      { name: 'Russin', amount: 60, unit: 'st' },
-      { name: 'Hela nejlikor', amount: 20, unit: 'st' },
-      { name: 'Ingefära', amount: 4, unit: 'g' },
-      { name: 'Pommeranskal', amount: 3, unit: 'st' },
-      { name: 'Bittermandlar', amount: 15, unit: 'st' },
-      { name: 'Svart vinbärssaft', amount: 3, unit: 'dl' },
+      { name: 'Jordnötssmör', amount: 1, unit: 'burk' },
+      { name: 'Sirap', amount: 2, unit: 'dl' },
+      { name: 'Socker', amount: 1, unit: 'dl' },
+      { name: 'Kellogg´s Special', amount: 1, unit: 'l' },
+      { name: 'Kokos', amount: 1, unit: 'dl' },
+      { name: 'Vaniljsocker', amount: 1, unit: 'tsk' },
+      { name: 'Blockchoklad (Ljus)', amount: 300, unit: 'g' },
     ],
     instructions: [
-      'Whisk together flour, cocoa, sugar, baking soda, and salt.',
-      'Add eggs, buttermilk, oil, and vanilla.',
-      'Stir in hot coffee until smooth.',
-      'Pour into two 9-inch round pans.',
-      'Bake at 350°F for 30-35 minutes.',
-      'Cool completely before frosting.',
-      'Make buttercream by beating butter with cocoa and sugar.',
-      'Frost between layers and on outside of cake.',
+      'Smält jordnötssmör, sirap och socker till en smet.',
+      'Blanda i Kellogs Special, kokos och vaniljsocker.',
+      'Häll i långpanna och häll över smält blockchoklad.',
     ],
+  },
+
+  {
+    id: 'rabarberpaj',
+    title: 'Rabarberpaj',
+    image: '/receptbilder/rabarberpaj.png',
+    category: 'Bakning',
+    prepTime: '30 min',
+    servings: 20,
+    description: 'Klassiska hallongrottor med mördeg och hallonsylt.',
+    ingredients: [
+      { name: 'Smör', amount: 175, unit: 'g' },
+      { name: 'Mjöl', amount: 3, unit: 'dl' },
+      { name: 'Socker', amount: 1, unit: 'dl' },
+      { name: 'Salt', amount: 1, unit: 'krm' },
+      { name: 'Bakpulver', amount: 1/2, unit: 'tsk' },
+      { name: 'Rabarber', amount: 400, unit: 'g' },
+      { name: 'Socker', amount: 3, unit: 'tsk' },
+      { name: 'Potatismjöl', amount: 1, unit: 'tsk' },
+    ],
+    instructions: [
+      'Sätt ugnen på 225°C.',
+      'Smält smöret och låt det svalna något.',
+      'Blanda mjöl, socker, salt och bakpulver i en bunke.',
+      'Rör ner det smälta smöret tills du får en smulig deg.',
+      'Skär rabarbern i mindre bitar och blanda med socker och potatismjöl.',
+      'Lägg rabarbern i en smord pajform.',
+      'Fördela smuldegen jämnt över rabarbern.',
+      'Grädda mitt i ugnen i cirka 20–25 minuter tills pajen är gyllene.',
+      'Låt svalna något före servering.',
+    ]
   },
 
   // DRYCKER -----------------------------------------------------------------------------------
@@ -297,6 +324,30 @@ export const sampleRecipes: Recipe[] = [
       'Sila bort kryddor och frukt innan servering. Tillsätt aromatiska droppar.',
     ]
   },
+
+    // ÖVRIGT -----------------------------------------------------------------------------------
+    {
+      id: 'playdoh',
+      title: 'Play-Doh',
+      image: '/receptbilder/playdoh.png',
+      category: 'Övrigt',
+      prepTime: '5 veckor',
+      servings: 12,
+      description: 'Hans goda glögg.',
+      ingredients: [
+        { name: 'Mjöl', amount: 5, unit: 'dl' },
+        { name: 'Salt', amount: 2, unit: 'dl' },
+        { name: 'Citroncyra', amount: 1.5, unit: 'msk' },
+        { name: 'Olja', amount: 1.5, unit: 'msk' },
+        { name: 'Kokande vatten', amount: 5, unit: 'dl' },
+      ],
+      instructions: [
+        'Blanda torra ingredienser i en bunke.',
+        'Tillsätt kokande vatten.',
+        'Tillsätta några droppar karamellfärg.',
+        'Undvik att äta.',
+      ]
+    },
 ]
 
 export function getRecipeById(id: string): Recipe | undefined {
