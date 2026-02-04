@@ -21,10 +21,8 @@ export async function generateMetadata(
 
   return {
     title: recipe.title,
-    description: recipe.description,
     openGraph: {
       title: recipe.title,
-      description: recipe.description,
       url: `https://tivemarksrecept.vercel.app/recipe/${recipe.id}`,
       type: 'article',
       images: [
@@ -39,7 +37,6 @@ export async function generateMetadata(
     twitter: {
       card: 'summary_large_image',
       title: recipe.title,
-      description: recipe.description,
       images: [imageUrl],
     },
   }
@@ -128,6 +125,24 @@ export default async function RecipePage({ params }: RecipePageProps) {
     </li>
   ))}
 </ul>
+
+{recipe.ingredients2 && recipe.ingredients2.length > 0 && (
+  <>
+    <hr className="my-6 border-border" />
+
+    <ul className="space-y-3">
+      {recipe.ingredients2.map((ingredient, index) => (
+        <li
+          key={`ingredient2-${index}`}
+          className="flex items-start gap-3 text-sm text-foreground"
+        >
+          <span className="w-1.5 h-1.5 bg-accent rounded-full mt-2 shrink-0" />
+          <span>{formatIngredient(ingredient)}</span>
+        </li>
+      ))}
+    </ul>
+  </>
+)}
               </div>
             </aside>
 

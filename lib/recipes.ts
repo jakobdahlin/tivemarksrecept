@@ -54,10 +54,8 @@ export interface Recipe {
   title: string
   image: string
   category: RecipeCategory
-  prepTime: string
-  servings: number
-  description: string
   ingredients: Ingredient[]
+  ingredients2?: Ingredient[]
   instructions?: string[]
 }
 
@@ -79,9 +77,6 @@ export const sampleRecipes: Recipe[] = [
       title: 'Italiensk Pizzadeg',
       image: '/receptbilder/pizzadeg.png',
       category: 'Huvudrätter',
-      prepTime: '60 minuter',
-      servings: 6,
-      description: 'Fyllig och mättande',
       ingredients: [
         { name: 'Ljummet vatten', amount: 2, unit: 'dl' },
         { name: 'Olja', amount: 1, unit: 'msk' },
@@ -97,9 +92,6 @@ export const sampleRecipes: Recipe[] = [
     title: 'Quiche Lorraine',
     image: '/receptbilder/quichelorraine.png',
     category: 'Paj',
-    prepTime: '45 minuter',
-    servings: 6,
-    description: 'Fyllig och mättande',
     ingredients: [
       { name: 'Margarin', amount: 100, unit: 'g' },
       { name: 'Mjöl', amount: 2, unit: 'dl' },
@@ -132,9 +124,6 @@ export const sampleRecipes: Recipe[] = [
     title: 'Kräftsoppa',
     image: '/receptbilder/kraftsoppa.png',
     category: 'Soppor & Grytor',
-    prepTime: '30 minuter',
-    servings: 4,
-    description: 'Decadent chocolate layer cake with chocolate buttercream.',
     ingredients: [
       { name: 'Smör', amount: 2, unit: 'msk' },
       { name: 'Finrivna morötter', amount: 3, unit: 'st' },
@@ -167,9 +156,6 @@ export const sampleRecipes: Recipe[] = [
     title: 'Ugnsomelett',
     image: '/receptbilder/ugnsomelett.png',
     category: 'Frukost',
-    prepTime: '35 minuter',
-    servings: 4,
-    description: 'Decadent chocolate layer cake with chocolate buttercream.',
     ingredients: [
       { name: 'Ägg', amount: 4, unit: 'st' },
       { name: 'Mjölk', amount: 3, unit: 'dl' },
@@ -191,9 +177,6 @@ export const sampleRecipes: Recipe[] = [
     title: 'Hallongrottor',
     image: '/receptbilder/hallongrottor.png',
     category: 'Bakning',
-    prepTime: '30 min',
-    servings: 20,
-    description: 'Klassiska hallongrottor med mördeg och hallonsylt.',
     ingredients: [
       { name: 'Margarin', amount: 250, unit: 'g' },
       { name: 'Socker', amount: 1.5, unit: 'tsk' },
@@ -219,9 +202,6 @@ export const sampleRecipes: Recipe[] = [
     title: 'Snickers',
     image: '/receptbilder/snickers.png',
     category: 'Bakning',
-    prepTime: '30 min',
-    servings: 20,
-    description: 'Klassiska hallongrottor med mördeg och hallonsylt.',
     ingredients: [
       { name: 'Jordnötssmör', amount: 1, unit: 'burk' },
       { name: 'Sirap', amount: 2, unit: 'dl' },
@@ -233,7 +213,7 @@ export const sampleRecipes: Recipe[] = [
     ],
     instructions: [
       'Smält jordnötssmör, sirap och socker till en smet.',
-      'Blanda i Kellogs Special, kokos och vaniljsocker.',
+      'Blanda i Kellogg´s Special, kokos och vaniljsocker.',
       'Häll i långpanna och häll över smält blockchoklad.',
     ],
   },
@@ -243,9 +223,6 @@ export const sampleRecipes: Recipe[] = [
     title: 'Rabarberpaj',
     image: '/receptbilder/rabarberpaj.png',
     category: 'Bakning',
-    prepTime: '30 min',
-    servings: 20,
-    description: 'Klassiska hallongrottor med mördeg och hallonsylt.',
     ingredients: [
       { name: 'Smör', amount: 175, unit: 'g' },
       { name: 'Mjöl', amount: 3, unit: 'dl' },
@@ -275,9 +252,6 @@ export const sampleRecipes: Recipe[] = [
     title: 'Smulpaj',
     image: '/receptbilder/smulpaj.png',
     category: 'Bakning',
-    prepTime: '45 minuter',
-    servings: 6,
-    description: 'Fyllig och mättande',
     ingredients: [
       { name: 'Margarin', amount: 100, unit: 'g' },
       { name: 'Mjöl', amount: 2, unit: 'dl' },
@@ -304,9 +278,6 @@ export const sampleRecipes: Recipe[] = [
     title: 'Tårtbotten',
     image: '/receptbilder/tartbotten.png',
     category: 'Bakning',
-    prepTime: '45 minuter',
-    servings: 10,
-    description: 'Fyllig och mättande',
     ingredients: [
       { name: 'ägg', amount: 2, unit: 'st' },
       { name: 'Socker', amount: 2, unit: 'dl' },
@@ -327,6 +298,41 @@ export const sampleRecipes: Recipe[] = [
       'Låt tårtbottnen svalna några minuter i formen, vänd sedan upp den på galler och låt svalna helt innan den delas eller fylls.'
     ]
   },
+  {
+    id: 'gotlandsrutor',
+    title: 'Gotlandsrutor',
+    image: '/receptbilder/gotlandsrutor.png',
+    category: 'Bakning',
+    ingredients: [
+      { name: 'Vetemjöl', amount: 9, unit: 'dl' },
+      { name: 'Farinsocker', amount: 3, unit: 'dl' },
+      { name: 'Socker', amount: 3, unit: 'dl' },
+      { name: 'Kanel', amount: 1, unit: 'msk' },
+      { name: 'Kakao', amount: 1, unit: 'msk' },
+      { name: 'Bikarbonat', amount: 1.5, unit: 'tsk' },
+      { name: 'Yogurt', amount: 6, unit: 'dl' },
+      { name: 'Margarin', amount: 200, unit: 'g' }, 
+    ],
+    ingredients2: [
+      { name: 'Florsocker', amount: 4, unit: 'dl' },
+      { name: 'Citronskal', amount: 1, unit: 'st' },
+      { name: 'Pressad Apelsin', amount: 1/2, unit: 'st' },
+      { name: 'Margarin', amount: 25, unit: 'g' },
+      { name: 'Syltade apelsinskal', amount: 1, unit: 'burk' },
+    ],
+    instructions: [
+      'Sätt ugnen på 200°C och klä en långpanna med bakplåtspapper.',
+      'Blanda vetemjöl, farinsocker, strösocker, kanel, kakao och bikarbonat i en stor bunke.',
+      'Tillsätt yoghurten och rör till en jämn smet.',
+      'Smält margarinet och blanda ner det i smeten.',
+      'Häll smeten i långpannan och bred ut jämnt.',
+      'Grädda mitt i ugnen i ca 25 minuter.',
+      'Ta ut kakan och låt den svalna något.',
+      'Blanda florsocker, finrivet citronskal, pressad apelsin och margarin till en slät glasyr.',
+      'Bred glasyren över den ljumma eller kalla kakan.',
+      'Strö över syltade apelsinskal och låt glasyren stelna innan kakan skärs i rutor.',
+    ]
+  },
 
   // DRYCKER -----------------------------------------------------------------------------------
   {
@@ -334,9 +340,6 @@ export const sampleRecipes: Recipe[] = [
     title: 'Hans Glögg',
     image: '/receptbilder/hansglogg.png',
     category: 'Drycker',
-    prepTime: '5 veckor',
-    servings: 12,
-    description: 'Hans goda glögg.',
     ingredients: [
       { name: 'Svagdricka', amount: 6, unit: 'l' },
       { name: 'Socker', amount: 3, unit: 'dl' },
@@ -367,9 +370,6 @@ export const sampleRecipes: Recipe[] = [
       title: 'Play-Doh',
       image: '/receptbilder/playdoh.png',
       category: 'Övrigt',
-      prepTime: '5 veckor',
-      servings: 12,
-      description: 'Hans goda glögg.',
       ingredients: [
         { name: 'Mjöl', amount: 5, unit: 'dl' },
         { name: 'Salt', amount: 2, unit: 'dl' },
@@ -402,12 +402,16 @@ export function shuffleRecipes(recipes: Recipe[]): Recipe[] {
 export function searchRecipes(recipes: Recipe[], query: string): Recipe[] {
   const lowercaseQuery = query.toLowerCase().trim()
   if (!lowercaseQuery) return recipes
-  
-  return recipes.filter(recipe => 
+
+  return recipes.filter(recipe =>
     recipe.title.toLowerCase().includes(lowercaseQuery) ||
-    recipe.description.toLowerCase().includes(lowercaseQuery) ||
     recipe.category.toLowerCase().includes(lowercaseQuery) ||
-    recipe.ingredients.some(ing => ing.name.toLowerCase().includes(lowercaseQuery))
+    recipe.ingredients.some(ing =>
+      ing.name.toLowerCase().includes(lowercaseQuery)
+    ) ||
+    recipe.ingredients2?.some(ing =>
+      ing.name.toLowerCase().includes(lowercaseQuery)
+    )
   )
 }
 
