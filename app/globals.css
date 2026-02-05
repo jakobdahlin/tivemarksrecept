@@ -125,41 +125,38 @@
   }
 }
 
-/* Scrolling animations for recipe grid */
-@keyframes scroll-up {
+/* Horizontal scrolling animations */
+@keyframes scroll-left {
   0% {
-    transform: translateY(0);
+    transform: translateX(0);
   }
   100% {
-    transform: translateY(-50%);
+    transform: translateX(-50%);
   }
 }
 
-@keyframes scroll-down {
+@keyframes scroll-right {
   0% {
-    transform: translateY(-50%);
+    transform: translateX(-50%);
   }
   100% {
-    transform: translateY(0);
+    transform: translateX(0);
   }
 }
 
-.animate-scroll-up {
-  animation: scroll-up 60s linear infinite;
+.animate-scroll-left {
+  animation: scroll-left 70s linear infinite;
+  animation-play-state: running; /* 👈 FORCE START */
 }
 
-.animate-scroll-down {
-  animation: scroll-down 60s linear infinite;
-}
-
-.animate-scroll-up-slow {
-  animation: scroll-up 80s linear infinite;
+.animate-scroll-right {
+  animation: scroll-right 90s linear infinite;
+  animation-play-state: running; /* 👈 FORCE START */
 }
 
 /* Pause animation on hover */
-.animate-scroll-up:hover,
-.animate-scroll-down:hover,
-.animate-scroll-up-slow:hover {
+.animate-scroll-left:hover,
+.animate-scroll-right:hover {
   animation-play-state: paused;
 }
 

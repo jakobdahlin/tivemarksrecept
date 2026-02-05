@@ -85,6 +85,26 @@ export const sampleRecipes: Recipe[] = [
       ],
     },
 
+    {
+      id: 'saffranspannkaka',
+      title: 'Saffranspannkaka',
+      image: '/receptbilder/saffranspannkaka.png',
+      category: 'Huvudrätter',
+      ingredients: [
+        { name: 'Risgrynsgröt', amount: 1, unit: 'l' },
+        { name: 'Grädde', amount: 1.5, unit: 'dl' },
+        { name: 'Ägg', amount: 3, unit: 'st' },
+        { name: 'Socker', amount: 2, unit: 'msk' },
+        { name: 'Hackad mandel', amount: 1, unit: 'dl' },
+        { name: 'Saffran', amount: 1, unit: 'paket' },
+      ],
+      instructions: [
+        '225°C.',
+        '30 minuter',
+      ],
+    },
+    
+
   // PAJ -----------------------------------------------------------------------------------
 
   {
@@ -167,6 +187,25 @@ export const sampleRecipes: Recipe[] = [
       'Sätt ugnen på 175°.',
       'Blanda ingredienserna.',
       'Slå i smord form.',
+    ],
+  },
+
+  {
+    id: 'musli',
+    title: 'Müsli',
+    image: '/receptbilder/musli.png',
+    category: 'Frukost',
+    ingredients: [
+      { name: 'Havregryn', amount: 1, unit: 'l' },
+      { name: 'Rågflingor', amount: 5, unit: 'dl' },
+      { name: 'Vetegroddar', amount: 2.5, unit: 'dl' },
+      { name: 'Olja', amount: 1/2, unit: 'dl' },
+      { name: 'Mörk sirap', amount: 1.5, unit: 'dl' },
+      { name: 'Russin', amount: 2, unit: 'dl' },
+    ],
+    instructions: [
+      '150°.',
+      '10-15 minuter',
     ],
   },
 
@@ -332,6 +371,37 @@ export const sampleRecipes: Recipe[] = [
       'Bred glasyren över den ljumma eller kalla kakan.',
       'Strö över syltade apelsinskal och låt glasyren stelna innan kakan skärs i rutor.',
     ]
+  },
+
+  {
+    id: 'saffranskaka',
+    title: 'Saffranskaka',
+    image: '/receptbilder/saffranskaka.png',
+    category: 'Bakning',
+    ingredients: [
+      { name: 'Ägg', amount: 2, unit: 'st' },
+      { name: 'Socker', amount: 3, unit: 'dl' },
+      { name: 'Saffran', amount: 1, unit: 'paket' },
+      { name: 'smält Margarin', amount: 200, unit: 'g' },
+      { name: 'Mjölk', amount: 1.5, unit: 'dl' },
+      { name: 'Mjöl', amount: 4, unit: 'dl' },
+      { name: 'Bakpulver', amount: 2, unit: 'tsk' },
+      { name: 'Florsocker', amount: 1, unit: 'msk' },
+      { name: 'Ströbröd', amount: 2, unit: 'msk' },
+    ],
+    instructions: [
+      'Sätt ugnen på 175°C.',
+      'Smält margarinet och blanda i saffran. Låt svalna något.',
+      'Vispa ägg och socker pösigt.',
+      'Rör ner saffransmörblandningen i äggsmeten.',
+      'Tillsätt mjölken och blanda försiktigt.',
+      'Blanda mjöl och bakpulver i en separat skål.',
+      'Vänd ner mjölblandningen i smeten tills den är jämn.',
+      'Häll smeten i en smord och ströbröad form.',
+      'Grädda i mitten av ugnen i cirka 30 minuter.',
+      'Låt kakan svalna något.',
+      'Sikta florsocker över före servering.',
+    ],
   },
 
   // DRYCKER -----------------------------------------------------------------------------------
