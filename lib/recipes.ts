@@ -99,8 +99,32 @@ export const sampleRecipes: Recipe[] = [
         { name: 'Saffran', amount: 1, unit: 'paket' },
       ],
       instructions: [
-        '225°C.',
+        '225°C',
         '30 minuter',
+      ],
+    },
+
+    {
+      id: 'ryskapiroger',
+      title: 'Ryska Piroger',
+      image: '/receptbilder/ryskapiroger.png',
+      category: 'Huvudrätter',
+      ingredients: [
+        { name: 'Jäst', amount: 50, unit: 'g' },
+        { name: 'Mjölk', amount: 3, unit: 'dl' },
+        { name: 'Margarin', amount: 100, unit: 'g' },
+        { name: 'Salt', amount: 1, unit: 'tsk' },
+        { name: 'Ägg', amount: 3, unit: 'st' },
+        { name: 'Vetemjöl', amount: 12, unit: 'dl' },
+      ],
+      instructions: [
+        '225°C',
+        'Gör en smidig deg',
+        'Jäs i 30 minuter',
+        'Fyll med köttfärs/lök/tomatpuré*',
+        'Fyll och jäs 10 minuter',
+        'Pensla med ägg',
+        '15 minuter i ugnen',
       ],
     },
     
@@ -123,17 +147,71 @@ export const sampleRecipes: Recipe[] = [
       { name: 'Ruccula', amount: 1, unit: 'paket' },
     ],
     instructions: [
-      'Sätt ugnen på 175°C.',
-      'Blanda mjöl och margarin till en smulig deg.',
-      'Tillsätt vattnet och arbeta snabbt ihop till en deg.',
-      'Tryck ut degen i en pajform och nagga botten med en gaffel.',
-      'Förbaka pajskalet i mitten av ugnen i ca 10 minuter.',
-      'Vispa ihop ägg och grädde i en skål.',
-      'Blanda ner den rivna osten och skinkan och rör till en jämn smet.',
-      'Häll äggstanningen i det förbakade pajskalet.',
-      'Grädda pajen i 175°C i ca 30–35 minuter tills fyllningen har stannat och fått fin färg.',
-      'Låt pajen vila några minuter före servering.',
+      'Sätt ugnen på 175°C',
+      'Blanda mjöl och margarin till en smulig deg',
+      'Tillsätt vattnet och arbeta snabbt ihop till en deg',
+      'Tryck ut degen i en pajform och nagga botten med en gaffel',
+      'Förbaka pajskalet i mitten av ugnen i ca 10 minuter',
+      'Vispa ihop ägg och grädde i en skål',
+      'Blanda ner den rivna osten och skinkan och rör till en jämn smet',
+      'Häll äggstanningen i det förbakade pajskalet',
+      'Grädda pajen i 175°C i ca 30–35 minuter tills fyllningen har stannat och fått fin färg',
+      'Låt pajen vila några minuter före servering',
       'Garnera med ruccula',
+    ],
+  },
+
+  {
+    id: 'potatispurjopaj',
+    title: 'Potatis & Purjolökspaj',
+    image: '/receptbilder/potatispurjopaj.png',
+    category: 'Paj',
+    ingredients: [
+      { name: 'Mjöl', amount: 2 + 1/2, unit: 'dl' },
+      { name: 'Smör', amount: 125, unit: 'g' },
+      { name: 'Kallt vatten', amount: 2, unit: 'msk' },
+      { name: 'Salt', amount: 1, unit: 'krm' },
+    ],
+
+    ingredients2: [
+      { name: 'Purjolök', amount: 1, unit: 'st' },
+      { name: 'Potatis', amount: 600, unit: 'g' },
+      { name: 'Ost', amount: 3, unit: 'dl' },
+      { name: 'Ägg', amount: 5, unit: 'st' },
+      { name: 'Mjölk', amount: 5, unit: 'dl' },
+    ],
+    instructions: [
+      'Sätt ugnen på 225°C',
+      'Koka purjolöken 5 i minuter',
+      'Koka potatisen i 4 minuter',
+      'Skär potatisen i 1/2cm skivor',
+      'Fyll pajen (Potatis -> Purjolök -> Ost -> Potatis -> Purjolök...)',
+      'Grädda 1 timme längst ner i ugnen',
+    ],
+  },
+
+  {
+    id: 'gronkalspaj',
+    title: 'Grönkålspaj',
+    image: '/receptbilder/gronkalspaj.png',
+    category: 'Paj',
+    ingredients: [
+      { name: 'Mjöl', amount: 3 + 1/2, unit: 'dl' },
+      { name: 'Smör', amount: 125, unit: 'g' },
+      { name: 'Kallt vatten', amount: 3, unit: 'msk' },
+    ],
+
+    ingredients2: [
+      { name: 'Färsk Grönkål', amount: 250, unit: 'g' },
+      { name: 'Rödlökar', amount: 2, unit: 'st' },
+      { name: 'Riven Prästost', amount: 2, unit: 'dl' },
+      { name: 'Ägg', amount: 3, unit: 'st' },
+      { name: 'Grädde', amount: 3, unit: 'dl' },
+    ],
+    instructions: [
+      'Sätt ugnen på 200°C',
+      'Koka 5-7 minuter',
+      'Stek lök och kål i 10 minuter',
     ],
   },
 
@@ -206,6 +284,44 @@ export const sampleRecipes: Recipe[] = [
     instructions: [
       '150°.',
       '10-15 minuter',
+    ],
+  },
+
+  {
+    id: 'pannkakor',
+    title: 'Pannkakor',
+    image: '/receptbilder/pannkakor.png',
+    category: 'Frukost',
+    ingredients: [
+      { name: 'Ägg', amount: 2, unit: 'st' },
+      { name: 'Mjölk', amount: 2, unit: 'dl' },
+      { name: 'Mjöl', amount: 3, unit: 'dl' },
+      { name: 'Salt', amount: 1, unit: 'tsk' },
+      { name: 'Mjölk (igen)', amount: 4, unit: 'dl' },
+    ],
+    instructions: [
+      'Låt smeten dra i 30 minuter',
+    ],
+  },
+
+  {
+    id: 'ampannkakor',
+    title: 'Amerikanska Pannkakor',
+    image: '/receptbilder/ampannkakor.png',
+    category: 'Frukost',
+    ingredients: [
+      { name: 'Smör', amount: 30, unit: 'g' },
+      { name: 'Mjöl', amount: 3 + 3/4, unit: 'dl' },
+      { name: 'Bakpulver', amount: 2, unit: 'tsk' },
+      { name: 'Socker', amount: 1, unit: 'tsk' },
+      { name: 'Salt', amount: 1, unit: 'tsk' },
+      { name: 'Ägg', amount: 2, unit: 'st' },
+      { name: 'Mjölk', amount: 3, unit: 'dl' },
+
+
+    ],
+    instructions: [
+      'Låt smeten dra i 30 minuter',
     ],
   },
 
@@ -401,6 +517,49 @@ export const sampleRecipes: Recipe[] = [
       'Grädda i mitten av ugnen i cirka 30 minuter.',
       'Låt kakan svalna något.',
       'Sikta florsocker över före servering.',
+    ],
+  },
+
+  {
+    id: 'pitabrod',
+    title: 'Pitabröd',
+    image: '/receptbilder/pitabrod.png',
+    category: 'Bakning',
+    ingredients: [
+      { name: 'Ljummet vatten', amount: 2, unit: 'st' },
+      { name: 'Olja', amount: 3, unit: 'dl' },
+      { name: 'Salt', amount: 1, unit: 'paket' },
+      { name: 'Jäst', amount: 200, unit: 'g' },
+      { name: 'Vetemjöl', amount: 1.5, unit: 'dl' },
+      { name: 'Vetemjöl Special', amount: 4, unit: 'dl' },
+    ],
+    instructions: [
+      'Sätt ugnen på 275°C',
+      'Jäs 45 minuter',
+      'Forma till bullar',
+      'Jäs 10 minuter',
+      'Kavla ut till tefat',
+      'Jäs 30 minuter',
+      'Grädda i 10 minuter',
+    ],
+  },
+
+  {
+    id: 'tekakor',
+    title: 'Tekakor',
+    image: '/receptbilder/tekakor.png',
+    category: 'Bakning',
+    ingredients: [
+      { name: 'Jäst', amount: 2, unit: 'paket' },
+      { name: 'Socker', amount: 1 + 1/2, unit: 'dl' },
+      { name: 'Margarin', amount: 200, unit: 'g' },
+      { name: 'Mjölk', amount: 1, unit: 'l' },
+      { name: 'Bakpulver', amount: 1, unit: 'tsk' },
+      { name: 'Vetemjöl', amount: 3, unit: 'l' },
+    ],
+    instructions: [
+      '(48 st)',
+      '225°C',
     ],
   },
 

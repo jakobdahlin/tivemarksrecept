@@ -8,7 +8,7 @@ import type { Metadata } from 'next'
 export async function generateMetadata(
   { params }: RecipePageProps
 ): Promise<Metadata> {
-  const { id } = await params
+  const { id } = params
   const recipe = getRecipeById(id)
 
   if (!recipe) {
@@ -43,11 +43,11 @@ export async function generateMetadata(
 }
 
 interface RecipePageProps {
-  params: Promise<{ id: string }>
+  params: { id: string }
 }
 
 function formatIngredient(ingredient: Ingredient) {
-  const amount = ingredient.amount
+  const amount = formatAmount(ingredient.amount)
   const unit = ingredient.unit
   const name = ingredient.name
   const notes = ingredient.notes ? `, ${ingredient.notes}` : ""
@@ -55,8 +55,26 @@ function formatIngredient(ingredient: Ingredient) {
   return `${amount} ${unit} ${name}`.replace(/\s+/g, " ").trim() + notes
 }
 
+export function formatAmount(amount: number): string {
+  const whole = Math.floor(amount)
+  const fraction = amount - whole
+
+  const fractions: Record<number, string> = {
+    0.25: '1/4',
+    0.5: '1/2',
+    0.75: '3/4',
+  }
+
+  if (fractions[fraction]) {
+    if (whole === 0) return fractions[fraction]
+    return `${whole} ${fractions[fraction]}`
+  }
+
+  return amount.toString()
+}
+
 export default async function RecipePage({ params }: RecipePageProps) {
-  const { id } = await params
+  const { id } = params
   const recipe = getRecipeById(id)
 
   if (!recipe) {
@@ -115,9 +133,9 @@ export default async function RecipePage({ params }: RecipePageProps) {
                   Ingredienser
                 </h2>
                 <ul className="space-y-3">
-  {recipe.ingredients.map((ingredient, index) => (
+  {recipe.ingredients?.map((ingredient, index) => (
     <li
-      key={`ingredient-${index}`}
+      key={index}
       className="flex items-start gap-3 text-sm text-foreground"
     >
       <span className="w-1.5 h-1.5 bg-accent rounded-full mt-2 shrink-0" />
