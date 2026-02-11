@@ -81,6 +81,8 @@ export default async function RecipePage({ params }: RecipePageProps) {
     notFound()
   }
 
+  const hasSecondaryImage = recipe.image2 && recipe.image2.trim() !== ""
+
   return (
     <div className="min-h-screen bg-background">
       {/* Faded Background Image */}
@@ -96,12 +98,12 @@ export default async function RecipePage({ params }: RecipePageProps) {
         <div className="absolute inset-0 bg-gradient-to-b from-background via-background/95 to-background" />
       </div>
 
-      {/* Header no longer needs unit toggle */}
       <RecipeHeader />
 
       <main className="relative z-10 pt-24 pb-16">
         <article className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
-          {/* Recipe Hero */}
+          
+          {/* Header */}
           <header className="mb-8 sm:mb-12">
             <span className="inline-block px-3 py-1 text-sm font-medium bg-muted shadow-lg shadow-black/30 border text-secondary-foreground rounded-full mb-4">
               {recipe.category}
@@ -112,55 +114,84 @@ export default async function RecipePage({ params }: RecipePageProps) {
             </h1>
           </header>
 
-          {/* Recipe Image */}
-          <div className="relative aspect-[16/9] rounded-xl overflow-hidden mb-8 sm:mb-12 shadow-xl shadow-black/30">
-            <Image
-              src={recipe.image || "/placeholder.svg"}
-              alt={recipe.title}
-              fill
-              className="object-cover"
-              priority
-              sizes="(max-width: 768px) 100vw, 896px"
-            />
+          {/* Images Section */}
+          <div className="mb-8 sm:mb-12">
+            {hasSecondaryImage ? (
+              <div className="grid md:grid-cols-2 gap-6">
+                
+                {/* Main Image */}
+                <div className="relative aspect-[4/3] rounded-xl overflow-hidden shadow-xl shadow-black/30">
+                  <Image
+                    src={recipe.image}
+                    alt={recipe.title}
+                    fill
+                    className="object-cover"
+                    priority
+                  />
+                </div>
+
+                {/* Secondary Image */}
+                <div className="relative aspect-[4/3] rounded-xl overflow-hidden shadow-xl shadow-black/40 bg-muted">
+                  <Image
+                    src={recipe.image2!}
+                    alt={`${recipe.title} original recept`}
+                    fill
+                    className="object-cover"
+                  />
+                </div>
+              </div>
+            ) : (
+              <div className="relative aspect-[16/9] rounded-xl overflow-hidden shadow-xl shadow-black/30">
+                <Image
+                  src={recipe.image}
+                  alt={recipe.title}
+                  fill
+                  className="object-cover"
+                  priority
+                  sizes="(max-width: 768px) 100vw, 896px"
+                />
+              </div>
+            )}
           </div>
 
-          {/* Recipe Content */}
+          {/* Content */}
           <div className="grid md:grid-cols-3 gap-8 lg:gap-12">
+            
             {/* Ingredients */}
             <aside className="md:col-span-1">
               <div className="sticky top-24 bg-muted rounded-xl p-6 shadow-xl shadow-black/30 border border-border">
                 <h2 className="font-serif text-4xl font-semibold text-foreground mb-4">
                   Ingredienser
                 </h2>
+
                 <ul className="space-y-3">
-  {recipe.ingredients?.map((ingredient, index) => (
-    <li
-      key={index}
-      className="flex items-start gap-3 text-sm text-foreground"
-    >
-      <span className="w-1.5 h-1.5 bg-accent rounded-full mt-2 shrink-0" />
-      <span>{formatIngredient(ingredient)}</span>
-    </li>
-  ))}
-</ul>
+                  {recipe.ingredients?.map((ingredient, index) => (
+                    <li
+                      key={index}
+                      className="flex items-start gap-3 text-sm text-foreground"
+                    >
+                      <span className="w-1.5 h-1.5 bg-accent rounded-full mt-2 shrink-0" />
+                      <span>{formatIngredient(ingredient)}</span>
+                    </li>
+                  ))}
+                </ul>
 
-{recipe.ingredients2 && recipe.ingredients2.length > 0 && (
-  <>
-    <hr className="my-6 border-border" />
-
-    <ul className="space-y-3">
-      {recipe.ingredients2.map((ingredient, index) => (
-        <li
-          key={`ingredient2-${index}`}
-          className="flex items-start gap-3 text-sm text-foreground"
-        >
-          <span className="w-1.5 h-1.5 bg-accent rounded-full mt-2 shrink-0" />
-          <span>{formatIngredient(ingredient)}</span>
-        </li>
-      ))}
-    </ul>
-  </>
-)}
+                {recipe.ingredients2 && recipe.ingredients2.length > 0 && (
+                  <>
+                    <hr className="my-6 border-border" />
+                    <ul className="space-y-3">
+                      {recipe.ingredients2.map((ingredient, index) => (
+                        <li
+                          key={`ingredient2-${index}`}
+                          className="flex items-start gap-3 text-sm text-foreground"
+                        >
+                          <span className="w-1.5 h-1.5 bg-accent rounded-full mt-2 shrink-0" />
+                          <span>{formatIngredient(ingredient)}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </>
+                )}
               </div>
             </aside>
 
@@ -176,7 +207,9 @@ export default async function RecipePage({ params }: RecipePageProps) {
                     <span className="flex-shrink-0 w-8 h-8 rounded-full bg-primary text-primary-foreground flex items-center justify-center text-sm font-semibold">
                       {index + 1}
                     </span>
-                    <p className="text-foreground leading-relaxed pt-1">{instruction}</p>
+                    <p className="text-foreground leading-relaxed pt-1">
+                      {instruction}
+                    </p>
                   </li>
                 ))}
               </ol>

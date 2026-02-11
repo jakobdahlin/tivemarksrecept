@@ -1,51 +1,43 @@
 export type RecipeCategory =
-  | 'Huvudrätter'
-  | 'Paj'
-  | 'Soppor & Grytor'
-  | 'Frukost'
-  | 'Bakning'
+  | 'Varmrätter'
+  | 'Pajer'
+  | 'Bröd & Degar'
+  | 'Frukost & Brunch'
+  | 'Fika & Efterrätter'
   | 'Drycker'
-  | 'Övrigt'
+  | 'Annat'
 
 export const categories: {
   id: RecipeCategory
   label: string
-  description: string
 }[] = [
   {
-    id: 'Huvudrätter',
-    label: 'Huvudrätter',
-    description: 'Rejäla rätter för lunch och middag',
+    id: 'Varmrätter',
+    label: 'Varmrätter',
   },
   {
-    id: 'Paj',
-    label: 'Paj',
-    description: 'Rejäla pajer för lunch och middag',
+    id: 'Pajer',
+    label: 'Pajer',
   },
   {
-    id: 'Soppor & Grytor',
-    label: 'Soppor & Grytor',
-    description: 'Värmande rätter som ger komfort',
+    id: 'Bröd & Degar',
+    label: 'Bröd & Degar',
   },
   {
-    id: 'Frukost',
-    label: 'Frukost',
-    description: 'En bra start på dagen',
+    id: 'Frukost & Brunch',
+    label: 'Frukost & Brunch',
   },
   {
-    id: 'Bakning',
-    label: 'Bakning',
-    description: 'Bröd, bakverk och godsaker',
+    id: 'Fika & Efterrätter',
+    label: 'Fika & Efterrätter',
   },
   {
     id: 'Drycker',
     label: 'Drycker',
-    description: 'Drycker för hela familjen',
   },
   {
-    id: 'Övrigt',
-    label: 'Övrigt',
-    description: 'Övrigt',
+    id: 'Annat',
+    label: 'Annat',
   },
 ]
 
@@ -53,6 +45,7 @@ export interface Recipe {
   id: string
   title: string
   image: string
+  image2?: string
   category: RecipeCategory
   ingredients: Ingredient[]
   ingredients2?: Ingredient[]
@@ -62,80 +55,97 @@ export interface Recipe {
 export interface Ingredient {
   name: string
   amount: number
-  unit: 'g' | 'kg' | 'hg' | 'ml' | 'dl' | 'l' | 'st' | 'tsk' | 'msk' | 'krm' | 'paket' | 'ask' | 'burk'
+  unit: 'g' | 'kg' | 'hg' | 'ml' | 'dl' | 'l' | 'st' | 'tsk' | 'msk' | 'krm' | 'paket' | 'ask' | 'burk' | 'kvist'
   notes?: string
 }
 
 // Sample recipes - these will be replaced with real data later
 export const sampleRecipes: Recipe[] = [
 
+  // Varmrätter -----------------------------------------------------------------------------------
+  {
+    id: 'saffranspannkaka',
+    title: 'Saffranspannkaka',
+    image: '/receptbilder/saffranspannkaka.png',
+    category: 'Varmrätter',
+    ingredients: [
+      { name: 'Risgrynsgröt', amount: 1, unit: 'l' },
+      { name: 'Grädde', amount: 1.5, unit: 'dl' },
+      { name: 'Ägg', amount: 3, unit: 'st' },
+      { name: 'Socker', amount: 2, unit: 'msk' },
+      { name: 'Hackad mandel', amount: 1, unit: 'dl' },
+      { name: 'Saffran', amount: 1, unit: 'paket' },
+    ],
+    instructions: [
+      '225°C',
+      '30 minuter',
+    ],
+  },
 
-    // HUVUDRÄTTER -----------------------------------------------------------------------------------
+  {
+    id: 'ryskapiroger',
+    title: 'Ryska Piroger',
+    image: '/receptbilder/ryskapiroger.png',
+    image2: '',
+    category: 'Varmrätter',
+    ingredients: [
+      { name: 'Jäst', amount: 50, unit: 'g' },
+      { name: 'Mjölk', amount: 3, unit: 'dl' },
+      { name: 'Margarin', amount: 100, unit: 'g' },
+      { name: 'Salt', amount: 1, unit: 'tsk' },
+      { name: 'Ägg', amount: 3, unit: 'st' },
+      { name: 'Vetemjöl', amount: 12, unit: 'dl' },
+    ],
+    instructions: [
+      '225°C',
+      'Gör en smidig deg',
+      'Jäs i 30 minuter',
+      'Fyll med köttfärs/lök/tomatpuré*',
+      'Fyll och jäs 10 minuter',
+      'Pensla med ägg',
+      '15 minuter i ugnen',
+    ],
+  },
 
-    {
-      id: 'pizzadeg',
-      title: 'Italiensk Pizzadeg',
-      image: '/receptbilder/pizzadeg.png',
-      category: 'Huvudrätter',
-      ingredients: [
-        { name: 'Ljummet vatten', amount: 2, unit: 'dl' },
-        { name: 'Olja', amount: 1, unit: 'msk' },
-        { name: 'Jäst', amount: 25, unit: 'g' },
-        { name: 'Mjöl', amount: 5, unit: 'dl' },
-      ],
-    },
+  {
+    id: 'kraftsoppa',
+    title: 'Kräftsoppa',
+    image: '/receptbilder/kraftsoppa.png',
+    image2: '',
+    category: 'Varmrätter',
+    ingredients: [
+      { name: 'Smör', amount: 2, unit: 'msk' },
+      { name: 'Finrivna morötter', amount: 3, unit: 'st' },
+      { name: 'Mjöl', amount: 2, unit: 'msk' },
+      { name: 'Vatten', amount: 1, unit: 'l' },
+      { name: 'Fiskbuljongtärningar', amount: 2, unit: 'st' },
+      { name: 'Kräftost', amount: 1, unit: 'ask' },
+      { name: 'Kräftstjärtar', amount: 1, unit: 'burk' },
+      { name: 'Crab Fish', amount: 200, unit: 'g' },
+      { name: 'Creme Fraige', amount: 2, unit: 'dl' },
+      { name: 'Dill', amount: 2, unit: 'tsk' },
+      { name: 'Svartpeppar', amount: 2, unit: 'krm' },
+    ],
+    instructions: [
+      'Häll upp vattnet i en kastrul och värm upp med buljongtärningar.',
+      'Riv morötter och fräs i smöret.',
+      'Strö over mjöl.',
+      'Späd med buljong och krydda.',
+      'Låt koka i 10 minuter.',
+      'Häll i ost, creme fraige, dill och krabfish.',
+      'Låt puttra i 10 minuter.',
+      'Lägg i kräftstjärtarna före servering.',
+    ],
+  },
 
-    {
-      id: 'saffranspannkaka',
-      title: 'Saffranspannkaka',
-      image: '/receptbilder/saffranspannkaka.png',
-      category: 'Huvudrätter',
-      ingredients: [
-        { name: 'Risgrynsgröt', amount: 1, unit: 'l' },
-        { name: 'Grädde', amount: 1.5, unit: 'dl' },
-        { name: 'Ägg', amount: 3, unit: 'st' },
-        { name: 'Socker', amount: 2, unit: 'msk' },
-        { name: 'Hackad mandel', amount: 1, unit: 'dl' },
-        { name: 'Saffran', amount: 1, unit: 'paket' },
-      ],
-      instructions: [
-        '225°C',
-        '30 minuter',
-      ],
-    },
-
-    {
-      id: 'ryskapiroger',
-      title: 'Ryska Piroger',
-      image: '/receptbilder/ryskapiroger.png',
-      category: 'Huvudrätter',
-      ingredients: [
-        { name: 'Jäst', amount: 50, unit: 'g' },
-        { name: 'Mjölk', amount: 3, unit: 'dl' },
-        { name: 'Margarin', amount: 100, unit: 'g' },
-        { name: 'Salt', amount: 1, unit: 'tsk' },
-        { name: 'Ägg', amount: 3, unit: 'st' },
-        { name: 'Vetemjöl', amount: 12, unit: 'dl' },
-      ],
-      instructions: [
-        '225°C',
-        'Gör en smidig deg',
-        'Jäs i 30 minuter',
-        'Fyll med köttfärs/lök/tomatpuré*',
-        'Fyll och jäs 10 minuter',
-        'Pensla med ägg',
-        '15 minuter i ugnen',
-      ],
-    },
-    
-
-  // PAJ -----------------------------------------------------------------------------------
+  // Pajer -----------------------------------------------------------------------------------
 
   {
     id: 'quichelorraine',
     title: 'Quiche Lorraine',
     image: '/receptbilder/quichelorraine.png',
-    category: 'Paj',
+    image2: '',
+    category: 'Pajer',
     ingredients: [
       { name: 'Margarin', amount: 100, unit: 'g' },
       { name: 'Mjöl', amount: 2, unit: 'dl' },
@@ -165,7 +175,8 @@ export const sampleRecipes: Recipe[] = [
     id: 'potatispurjopaj',
     title: 'Potatis & Purjolökspaj',
     image: '/receptbilder/potatispurjopaj.png',
-    category: 'Paj',
+    image2: '',
+    category: 'Pajer',
     ingredients: [
       { name: 'Mjöl', amount: 2 + 1/2, unit: 'dl' },
       { name: 'Smör', amount: 125, unit: 'g' },
@@ -194,7 +205,8 @@ export const sampleRecipes: Recipe[] = [
     id: 'gronkalspaj',
     title: 'Grönkålspaj',
     image: '/receptbilder/gronkalspaj.png',
-    category: 'Paj',
+    image2: '',
+    category: 'Pajer',
     ingredients: [
       { name: 'Mjöl', amount: 3 + 1/2, unit: 'dl' },
       { name: 'Smör', amount: 125, unit: 'g' },
@@ -215,45 +227,102 @@ export const sampleRecipes: Recipe[] = [
     ],
   },
 
-  // SOPPOR & GRYTOR -----------------------------------------------------------------------------------
+  // Bröd & Degar -----------------------------------------------------------------------------------
 
   {
-    id: 'kraftsoppa',
-    title: 'Kräftsoppa',
-    image: '/receptbilder/kraftsoppa.png',
-    category: 'Soppor & Grytor',
+    id: 'pizzadeg',
+    title: 'Italiensk Pizzadeg',
+    image: '/receptbilder/pizzadeg.png',
+    image2: '',
+    category: 'Bröd & Degar',
     ingredients: [
-      { name: 'Smör', amount: 2, unit: 'msk' },
-      { name: 'Finrivna morötter', amount: 3, unit: 'st' },
-      { name: 'Mjöl', amount: 2, unit: 'msk' },
-      { name: 'Vatten', amount: 1, unit: 'l' },
-      { name: 'Fiskbuljongtärningar', amount: 2, unit: 'st' },
-      { name: 'Kräftost', amount: 1, unit: 'ask' },
-      { name: 'Kräftstjärtar', amount: 1, unit: 'burk' },
-      { name: 'Crab Fish', amount: 200, unit: 'g' },
-      { name: 'Creme Fraige', amount: 2, unit: 'dl' },
-      { name: 'Dill', amount: 2, unit: 'tsk' },
-      { name: 'Svartpeppar', amount: 2, unit: 'krm' },
-    ],
-    instructions: [
-      'Häll upp vattnet i en kastrul och värm upp med buljongtärningar.',
-      'Riv morötter och fräs i smöret.',
-      'Strö over mjöl.',
-      'Späd med buljong och krydda.',
-      'Låt koka i 10 minuter.',
-      'Häll i ost, creme fraige, dill och krabfish.',
-      'Låt puttra i 10 minuter.',
-      'Lägg i kräftstjärtarna före servering.',
+      { name: 'Ljummet vatten', amount: 2, unit: 'dl' },
+      { name: 'Olja', amount: 1, unit: 'msk' },
+      { name: 'Jäst', amount: 25, unit: 'g' },
+      { name: 'Mjöl', amount: 5, unit: 'dl' },
     ],
   },
 
-  // FRUKOST -----------------------------------------------------------------------------------
+  {
+    id: 'pitabrod',
+    title: 'Pitabröd',
+    image: '/receptbilder/pitabrod.png',
+    image2: '',
+    category: 'Bröd & Degar',
+    ingredients: [
+      { name: 'Ljummet vatten', amount: 2, unit: 'st' },
+      { name: 'Olja', amount: 3, unit: 'dl' },
+      { name: 'Salt', amount: 1, unit: 'paket' },
+      { name: 'Jäst', amount: 200, unit: 'g' },
+      { name: 'Vetemjöl', amount: 1.5, unit: 'dl' },
+      { name: 'Vetemjöl Special', amount: 4, unit: 'dl' },
+    ],
+    instructions: [
+      'Sätt ugnen på 275°C',
+      'Jäs 45 minuter',
+      'Forma till bullar',
+      'Jäs 10 minuter',
+      'Kavla ut till tefat',
+      'Jäs 30 minuter',
+      'Grädda i 10 minuter',
+    ],
+  },
+
+  {
+    id: 'tekakor',
+    title: 'Tekakor',
+    image: '/receptbilder/tekakor.png',
+    image2: '',
+    category: 'Bröd & Degar',
+    ingredients: [
+      { name: 'Jäst', amount: 2, unit: 'paket' },
+      { name: 'Socker', amount: 1 + 1/2, unit: 'dl' },
+      { name: 'Margarin', amount: 200, unit: 'g' },
+      { name: 'Mjölk', amount: 1, unit: 'l' },
+      { name: 'Bakpulver', amount: 1, unit: 'tsk' },
+      { name: 'Vetemjöl', amount: 3, unit: 'l' },
+    ],
+    instructions: [
+      '(48 st)',
+      '225°C',
+    ],
+  },
+
+  {
+    id: 'tartbotten',
+    title: 'Tårtbotten',
+    image: '/receptbilder/tartbotten.png',
+    image2: '',
+    category: 'Bröd & Degar',
+    ingredients: [
+      { name: 'ägg', amount: 2, unit: 'st' },
+      { name: 'Socker', amount: 2, unit: 'dl' },
+      { name: 'Vetemjöl', amount: 2, unit: 'dl' },
+      { name: 'Bakpulver', amount: 1, unit: 'tsk' },
+      { name: 'Vaniljsocker', amount: 1, unit: 'tsk' },
+      { name: 'Hett vatten', amount: 4, unit: 'msk' },
+    ],
+    instructions: [
+      'Sätt ugnen på 175°C.',
+      'Klä en rund form (ca 22–24 cm) med bakplåtspapper i botten och smörj kanterna lätt.',
+      'Vispa ägg och socker ljust och riktigt pösigt i en bunke.',
+      'Blanda vetemjöl, bakpulver och vaniljsocker i en separat skål.',
+      'Sikta ner de torra ingredienserna i äggsmeten och vänd försiktigt ihop till en jämn smet.',
+      'Tillsätt det heta vattnet och rör snabbt men försiktigt tills smeten är slät.',
+      'Häll smeten i formen och jämna till ytan.',
+      'Grädda i nedre delen av ugnen i ca 30–35 minuter tills kakan är gyllene och en provsticka kommer ut torr.',
+      'Låt tårtbottnen svalna några minuter i formen, vänd sedan upp den på galler och låt svalna helt innan den delas eller fylls.'
+    ]
+  },
+
+  // Frukost & Brunch -----------------------------------------------------------------------------------
 
   {
     id: 'ugnsomelett',
     title: 'Ugnsomelett',
     image: '/receptbilder/ugnsomelett.png',
-    category: 'Frukost',
+    image2: '',
+    category: 'Frukost & Brunch',
     ingredients: [
       { name: 'Ägg', amount: 4, unit: 'st' },
       { name: 'Mjölk', amount: 3, unit: 'dl' },
@@ -272,7 +341,8 @@ export const sampleRecipes: Recipe[] = [
     id: 'musli',
     title: 'Müsli',
     image: '/receptbilder/musli.png',
-    category: 'Frukost',
+    image2: '',
+    category: 'Frukost & Brunch',
     ingredients: [
       { name: 'Havregryn', amount: 1, unit: 'l' },
       { name: 'Rågflingor', amount: 5, unit: 'dl' },
@@ -291,7 +361,8 @@ export const sampleRecipes: Recipe[] = [
     id: 'pannkakor',
     title: 'Pannkakor',
     image: '/receptbilder/pannkakor.png',
-    category: 'Frukost',
+    image2: '',
+    category: 'Frukost & Brunch',
     ingredients: [
       { name: 'Ägg', amount: 2, unit: 'st' },
       { name: 'Mjölk', amount: 2, unit: 'dl' },
@@ -308,7 +379,8 @@ export const sampleRecipes: Recipe[] = [
     id: 'ampannkakor',
     title: 'Amerikanska Pannkakor',
     image: '/receptbilder/ampannkakor.png',
-    category: 'Frukost',
+    image2: '',
+    category: 'Frukost & Brunch',
     ingredients: [
       { name: 'Smör', amount: 30, unit: 'g' },
       { name: 'Mjöl', amount: 3 + 3/4, unit: 'dl' },
@@ -325,13 +397,14 @@ export const sampleRecipes: Recipe[] = [
     ],
   },
 
-  // BAKNING -----------------------------------------------------------------------------------
+  // Fika & Efterrätter -----------------------------------------------------------------------------------
 
   {
     id: 'hallongrottor',
     title: 'Hallongrottor',
     image: '/receptbilder/hallongrottor.png',
-    category: 'Bakning',
+    image2: '',
+    category: 'Fika & Efterrätter',
     ingredients: [
       { name: 'Margarin', amount: 250, unit: 'g' },
       { name: 'Socker', amount: 1.5, unit: 'tsk' },
@@ -356,7 +429,8 @@ export const sampleRecipes: Recipe[] = [
     id: 'snickers',
     title: 'Snickers',
     image: '/receptbilder/snickers.png',
-    category: 'Bakning',
+    image2: '',
+    category: 'Fika & Efterrätter',
     ingredients: [
       { name: 'Jordnötssmör', amount: 1, unit: 'burk' },
       { name: 'Sirap', amount: 2, unit: 'dl' },
@@ -374,90 +448,11 @@ export const sampleRecipes: Recipe[] = [
   },
 
   {
-    id: 'rabarberpaj',
-    title: 'Rabarberpaj',
-    image: '/receptbilder/rabarberpaj.png',
-    category: 'Bakning',
-    ingredients: [
-      { name: 'Smör', amount: 175, unit: 'g' },
-      { name: 'Mjöl', amount: 3, unit: 'dl' },
-      { name: 'Socker', amount: 1, unit: 'dl' },
-      { name: 'Salt', amount: 1, unit: 'krm' },
-      { name: 'Bakpulver', amount: 1/2, unit: 'tsk' },
-      { name: 'Rabarber', amount: 400, unit: 'g' },
-      { name: 'Socker', amount: 3, unit: 'tsk' },
-      { name: 'Potatismjöl', amount: 1, unit: 'tsk' },
-    ],
-    instructions: [
-      'Sätt ugnen på 225°C.',
-      'Smält smöret och låt det svalna något.',
-      'Blanda mjöl, socker, salt och bakpulver i en bunke.',
-      'Rör ner det smälta smöret tills du får en mjuk deg.',
-      'Skär rabarbern i mindre bitar och blanda med socker och potatismjöl.',
-      'Smörj pajformen med lite smör.',
-      'kavla försiktigt ut degen över pajformen och kanterna.',
-      'Lägg på rabarbern och strö socker på pajen.',
-      'Grädda mitt i ugnen i cirka 20 minuter tills pajen är gyllene.',
-      'Låt svalna något före servering.',
-    ]
-  },
-
-  {
-    id: 'smulpaj',
-    title: 'Smulpaj',
-    image: '/receptbilder/smulpaj.png',
-    category: 'Bakning',
-    ingredients: [
-      { name: 'Margarin', amount: 100, unit: 'g' },
-      { name: 'Mjöl', amount: 2, unit: 'dl' },
-      { name: 'Vaniljsocker', amount: 1, unit: 'tsk' },
-      { name: 'Bakpulver', amount: 1, unit: 'tsk' },
-    ],
-    instructions: [
-      'Sätt ugnen på 225°C.',
-      'Blanda mjöl och margarin till en smulig deg.',
-      'Tillsätt vattnet och arbeta snabbt ihop till en deg.',
-      'Tryck ut degen i en pajform och nagga botten med en gaffel.',
-      'Förbaka pajskalet i mitten av ugnen i ca 10 minuter.',
-      'Vispa ihop ägg och grädde i en skål.',
-      'Blanda ner den rivna osten och skinkan och rör till en jämn smet.',
-      'Häll äggstanningen i det förbakade pajskalet.',
-      'Grädda pajen i 225°C i ca 30 minuter tills fyllningen har stannat och fått fin färg.',
-      'Låt pajen vila några minuter före servering.',
-      'Garnera med ruccula',
-    ],
-  },
-
-    {
-    id: 'tartbotten',
-    title: 'Tårtbotten',
-    image: '/receptbilder/tartbotten.png',
-    category: 'Bakning',
-    ingredients: [
-      { name: 'ägg', amount: 2, unit: 'st' },
-      { name: 'Socker', amount: 2, unit: 'dl' },
-      { name: 'Vetemjöl', amount: 2, unit: 'dl' },
-      { name: 'Bakpulver', amount: 1, unit: 'tsk' },
-      { name: 'Vaniljsocker', amount: 1, unit: 'tsk' },
-      { name: 'Hett vatten', amount: 4, unit: 'msk' },
-    ],
-    instructions: [
-      'Sätt ugnen på 175°C.',
-      'Klä en rund form (ca 22–24 cm) med bakplåtspapper i botten och smörj kanterna lätt.',
-      'Vispa ägg och socker ljust och riktigt pösigt i en bunke.',
-      'Blanda vetemjöl, bakpulver och vaniljsocker i en separat skål.',
-      'Sikta ner de torra ingredienserna i äggsmeten och vänd försiktigt ihop till en jämn smet.',
-      'Tillsätt det heta vattnet och rör snabbt men försiktigt tills smeten är slät.',
-      'Häll smeten i formen och jämna till ytan.',
-      'Grädda i nedre delen av ugnen i ca 30–35 minuter tills kakan är gyllene och en provsticka kommer ut torr.',
-      'Låt tårtbottnen svalna några minuter i formen, vänd sedan upp den på galler och låt svalna helt innan den delas eller fylls.'
-    ]
-  },
-  {
     id: 'gotlandsrutor',
     title: 'Gotlandsrutor',
     image: '/receptbilder/gotlandsrutor.png',
-    category: 'Bakning',
+    image2: '',
+    category: 'Fika & Efterrätter',
     ingredients: [
       { name: 'Vetemjöl', amount: 9, unit: 'dl' },
       { name: 'Farinsocker', amount: 3, unit: 'dl' },
@@ -493,7 +488,8 @@ export const sampleRecipes: Recipe[] = [
     id: 'saffranskaka',
     title: 'Saffranskaka',
     image: '/receptbilder/saffranskaka.png',
-    category: 'Bakning',
+    image2: '',
+    category: 'Fika & Efterrätter',
     ingredients: [
       { name: 'Ägg', amount: 2, unit: 'st' },
       { name: 'Socker', amount: 3, unit: 'dl' },
@@ -521,53 +517,101 @@ export const sampleRecipes: Recipe[] = [
   },
 
   {
-    id: 'pitabrod',
-    title: 'Pitabröd',
-    image: '/receptbilder/pitabrod.png',
-    category: 'Bakning',
+    id: 'rabarberpaj',
+    title: 'Rabarberpaj',
+    image: '/receptbilder/rabarberpaj.png',
+    image2: '',
+    category: 'Fika & Efterrätter',
     ingredients: [
-      { name: 'Ljummet vatten', amount: 2, unit: 'st' },
-      { name: 'Olja', amount: 3, unit: 'dl' },
-      { name: 'Salt', amount: 1, unit: 'paket' },
-      { name: 'Jäst', amount: 200, unit: 'g' },
-      { name: 'Vetemjöl', amount: 1.5, unit: 'dl' },
-      { name: 'Vetemjöl Special', amount: 4, unit: 'dl' },
+      { name: 'Smör', amount: 175, unit: 'g' },
+      { name: 'Mjöl', amount: 3, unit: 'dl' },
+      { name: 'Socker', amount: 1, unit: 'dl' },
+      { name: 'Salt', amount: 1, unit: 'krm' },
+      { name: 'Bakpulver', amount: 1/2, unit: 'tsk' },
+      { name: 'Rabarber', amount: 400, unit: 'g' },
+      { name: 'Socker', amount: 3, unit: 'tsk' },
+      { name: 'Potatismjöl', amount: 1, unit: 'tsk' },
     ],
     instructions: [
-      'Sätt ugnen på 275°C',
-      'Jäs 45 minuter',
-      'Forma till bullar',
-      'Jäs 10 minuter',
-      'Kavla ut till tefat',
-      'Jäs 30 minuter',
-      'Grädda i 10 minuter',
+      'Sätt ugnen på 225°C.',
+      'Smält smöret och låt det svalna något.',
+      'Blanda mjöl, socker, salt och bakpulver i en bunke.',
+      'Rör ner det smälta smöret tills du får en mjuk deg.',
+      'Skär rabarbern i mindre bitar och blanda med socker och potatismjöl.',
+      'Smörj pajformen med lite smör.',
+      'kavla försiktigt ut degen över pajformen och kanterna.',
+      'Lägg på rabarbern och strö socker på pajen.',
+      'Grädda mitt i ugnen i cirka 20 minuter tills pajen är gyllene.',
+      'Låt svalna något före servering.',
+    ]
+  },
+
+  {
+    id: 'smulpaj',
+    title: 'Smulpaj',
+    image: '/receptbilder/smulpaj.png',
+    image2: '',
+    category: 'Fika & Efterrätter',
+    ingredients: [
+      { name: 'Margarin', amount: 100, unit: 'g' },
+      { name: 'Mjöl', amount: 2, unit: 'dl' },
+      { name: 'Vaniljsocker', amount: 1, unit: 'tsk' },
+      { name: 'Bakpulver', amount: 1, unit: 'tsk' },
+    ],
+    instructions: [
+      'Sätt ugnen på 225°C.',
+      'Blanda mjöl och margarin till en smulig deg.',
+      'Tillsätt vattnet och arbeta snabbt ihop till en deg.',
+      'Tryck ut degen i en pajform och nagga botten med en gaffel.',
+      'Förbaka pajskalet i mitten av ugnen i ca 10 minuter.',
+      'Vispa ihop ägg och grädde i en skål.',
+      'Blanda ner den rivna osten och skinkan och rör till en jämn smet.',
+      'Häll äggstanningen i det förbakade pajskalet.',
+      'Grädda pajen i 225°C i ca 30 minuter tills fyllningen har stannat och fått fin färg.',
+      'Låt pajen vila några minuter före servering.',
+      'Garnera med ruccula',
     ],
   },
 
   {
-    id: 'tekakor',
-    title: 'Tekakor',
-    image: '/receptbilder/tekakor.png',
-    category: 'Bakning',
+    id: 'smorgastarta',
+    title: 'Marias Smörgåstårta',
+    image: '/receptbilder/smorgastarta.png',
+    image2: '',
+    category: 'Fika & Efterrätter',
     ingredients: [
-      { name: 'Jäst', amount: 2, unit: 'paket' },
-      { name: 'Socker', amount: 1 + 1/2, unit: 'dl' },
-      { name: 'Margarin', amount: 200, unit: 'g' },
-      { name: 'Mjölk', amount: 1, unit: 'l' },
-      { name: 'Bakpulver', amount: 1, unit: 'tsk' },
-      { name: 'Vetemjöl', amount: 3, unit: 'l' },
+      { name: 'Créme Fraiche', amount: 2, unit: 'dl' },
+      { name: 'Räkost', amount: 200, unit: 'g' },
+      { name: 'Majonäs', amount: 200, unit: 'g' },
+      { name: 'Räkor i lake', amount: 1, unit: 'burk' },
+      { name: 'Crab Fish', amount: 2, unit: 'paket' },
+      { name: 'Blåmögelost', amount: 1, unit: 'paket' },
+      { name: 'Keso', amount: 1, unit: 'burk' },
+      { name: 'Färska räkor', amount: 50, unit: 'st' },
+      { name: 'Persilja', amount: 1, unit: 'kvist' },
+      { name: 'Hönöbröd (halva)', amount: 4, unit: 'st' },
     ],
     instructions: [
-      '(48 st)',
-      '225°C',
-    ],
+      'Blanda Créme Fraiche, Räkost och Majonäs',
+      'Finhacka räkor och crab fish',
+      'Krydda smeten efter tyckte med lite salladskrydda',
+      'Lägg ihop två hönobröd som en botten på ett fat. Bred på smör på brödet',
+      'Häll ut hälften av smeten på brödet och jämna ut',
+      'Lägg på två halvmånar till av bröd och bred på med smör',
+      'Häll smeten i formen och jämna till ytan',
+      'Häll nu ut resten av smeten och jämna ut',
+      'Garnera därefter med handskalade räkor samt persilja',
+      'Kompletteras fint med Kopparbergs alkoholfria Päroncider',
+    ]
   },
 
-  // DRYCKER -----------------------------------------------------------------------------------
+  // Drycker -----------------------------------------------------------------------------------
+
   {
     id: 'hans-glogg',
     title: 'Hans Glögg',
     image: '/receptbilder/hansglogg.png',
+    image2: '',
     category: 'Drycker',
     ingredients: [
       { name: 'Svagdricka', amount: 6, unit: 'l' },
@@ -593,26 +637,30 @@ export const sampleRecipes: Recipe[] = [
     ]
   },
 
-    // ÖVRIGT -----------------------------------------------------------------------------------
-    {
-      id: 'playdoh',
-      title: 'Play-Doh',
-      image: '/receptbilder/playdoh.png',
-      category: 'Övrigt',
-      ingredients: [
-        { name: 'Mjöl', amount: 5, unit: 'dl' },
-        { name: 'Salt', amount: 2, unit: 'dl' },
-        { name: 'Citroncyra', amount: 1.5, unit: 'msk' },
-        { name: 'Olja', amount: 1.5, unit: 'msk' },
-        { name: 'Kokande vatten', amount: 5, unit: 'dl' },
-      ],
-      instructions: [
-        'Blanda torra ingredienser i en bunke.',
-        'Tillsätt kokande vatten.',
-        'Tillsätta några droppar karamellfärg.',
-        'Undvik att äta.',
-      ]
-    },
+
+// Annat -----------------------------------------------------------------------------------
+
+{
+  id: 'playdoh',
+  title: 'Play-Doh',
+  image: '/receptbilder/playdoh.png',
+  image2: '',
+  category: 'Annat',
+  ingredients: [
+    { name: 'Mjöl', amount: 5, unit: 'dl' },
+    { name: 'Salt', amount: 2, unit: 'dl' },
+    { name: 'Citroncyra', amount: 1.5, unit: 'msk' },
+    { name: 'Olja', amount: 1.5, unit: 'msk' },
+    { name: 'Kokande vatten', amount: 5, unit: 'dl' },
+  ],
+  instructions: [
+    'Blanda torra ingredienser i en bunke.',
+    'Tillsätt kokande vatten.',
+    'Tillsätta några droppar karamellfärg.',
+    'Undvik att äta.',
+  ]
+},
+
 ]
 
 export function getRecipeById(id: string): Recipe | undefined {
