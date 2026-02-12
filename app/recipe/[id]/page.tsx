@@ -73,8 +73,10 @@ export function formatAmount(amount: number): string {
   return amount.toString()
 }
 
-export default async function RecipePage({ params }: RecipePageProps) {
-  const { id } = params
+export default async function RecipePage(
+  { params }: { params: Promise<{ id: string }> }
+) {
+  const { id } = await params
   const recipe = getRecipeById(id)
 
   if (!recipe) {
