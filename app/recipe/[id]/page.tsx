@@ -132,15 +132,30 @@ export default async function RecipePage(
                   />
                 </div>
 
-                {/* Secondary Image */}
-                <div className="relative aspect-[4/3] rounded-xl overflow-hidden shadow-xl shadow-black/40 bg-muted">
-                  <Image
-                    src={recipe.image2!}
-                    alt={`${recipe.title} original recept`}
-                    fill
-                    className="object-cover"
-                  />
-                </div>
+{/* Secondary Image */}
+<div className="relative aspect-[4/3] bg-white overflow-hidden">
+  <Image
+    src={recipe.image2!}
+    alt={`${recipe.title} original recept`}
+    fill
+    className="object-contain"
+  />
+
+  {/* Edge Fade Overlay */}
+  <div className="pointer-events-none absolute inset-0">
+    {/* Top Fade */}
+    <div className="absolute top-0 left-0 right-0 h-24 bg-gradient-to-b from-white to-transparent" />
+    
+    {/* Bottom Fade */}
+    <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-white to-transparent" />
+    
+    {/* Left Fade */}
+    <div className="absolute top-0 bottom-0 left-0 w-24 bg-gradient-to-r from-white to-transparent" />
+    
+    {/* Right Fade */}
+    <div className="absolute top-0 bottom-0 right-0 w-24 bg-gradient-to-l from-white to-transparent" />
+  </div>
+</div>
               </div>
             ) : (
               <div className="relative aspect-[16/9] rounded-xl overflow-hidden shadow-xl shadow-black/30">

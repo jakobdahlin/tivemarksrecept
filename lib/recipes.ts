@@ -611,7 +611,7 @@ export const sampleRecipes: Recipe[] = [
     id: 'hans-glogg',
     title: 'Hans Glögg',
     image: '/receptbilder/hansglogg.png',
-    image2: '',
+    image2: '/receptbilder/hansglogg2.png',
     category: 'Drycker',
     ingredients: [
       { name: 'Svagdricka', amount: 6, unit: 'l' },
