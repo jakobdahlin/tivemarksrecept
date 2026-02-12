@@ -55,7 +55,7 @@ function formatIngredient(ingredient: Ingredient) {
   return `${amount} ${unit} ${name}`.replace(/\s+/g, " ").trim() + notes
 }
 
-export function formatAmount(amount: number): string {
+function formatAmount(amount: number): string {
   const whole = Math.floor(amount)
   const fraction = amount - whole
 
